@@ -1,0 +1,4 @@
+.DS_Store
+.matplotlib-cache/
+nilearn_data/
+*.mov

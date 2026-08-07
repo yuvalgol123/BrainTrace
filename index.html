@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>BrainCause | From Activation to Causality</title>
+<meta name="description" content="BrainCause discovers and validates causal visual representations in the human brain using controlled generative stimuli, counterfactual edits, and image-to-fMRI prediction." />
+<link rel="canonical" href="https://yuvalgol123.github.io/BrainCause/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="BrainCause | From Activation to Causality" />
+<meta property="og:description" content="A project page for causal discovery of visual representations in the human brain." />
+<meta property="og:url" content="https://yuvalgol123.github.io/BrainCause/" />
+<meta property="og:image" content="assets/final-ppt-media/teaser.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BrainCause | From Activation to Causality" />
+<meta name="twitter:description" content="Discovering concept-specific brain representations with counterfactual causal testing." />
+<meta name="theme-color" content="#f4f1ea" />
+<meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Roboto:400,700" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #222;
+    --muted: #555;
+    --soft: #f5f5f5;
+    --line: #e8e8e8;
+    --blue: #255f9e;
+    --green: #2f7a53;
+    --orange: #d58a20;
+    --red: #b7432c;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: #fff;
+    font-family: "Noto Sans", Arial, sans-serif;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .container {
+    width: min(var(--max), calc(100% - 32px));
+    margin: 0 auto;
+  }
+  .hero {
+    padding: 46px 0 18px;
+    text-align: center;
+  }
+  h1 {
+    margin: 0 auto 14px;
+    max-width: 980px;
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.8rem, 4.3vw, 3.45rem);
+    line-height: 1.06;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+  .subtitle {
+    margin: 0 auto 16px;
+    max-width: 860px;
+    color: #333;
+    font-size: clamp(1.22rem, 2.8vw, 1.82rem);
+    font-weight: 600;
+  }
+  .authors,
+  .affiliation,
+  .venue {
+    margin: 7px auto;
+    color: var(--muted);
+    font-size: clamp(1.1rem, 2vw, 1.28rem);
+  }
+  .authors {
+    max-width: 980px;
+    color: #333;
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .equal-note {
+    margin: 4px auto 10px;
+    color: #666;
+    font-size: 1rem;
+  }
+  .affiliation {
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    font-weight: 700;
+  }
+  .affiliation span {
+    display: inline-block;
+    margin: 0 8px;
+  }
+  .affiliation-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(22px, 5vw, 56px);
+    margin: 14px auto 0;
+    text-align: center;
+  }
+  .affiliation-logo {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .affiliation-number {
+    color: #000;
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1;
+    transform: translateY(-1px);
+  }
+  .affiliation-logos img {
+    display: block;
+    width: auto;
+    object-fit: contain;
+  }
+  .weizmann-logo {
+    height: clamp(36px, 4.6vw, 52px);
+  }
+  .mit-logo {
+    height: clamp(42px, 5.4vw, 58px);
+  }
+  .author-link {
+    color: #2874b8;
+    text-decoration: none;
+  }
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 22px 0 0;
+  }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 17px;
+    border-radius: 999px;
+    background: #303030;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.94rem;
+    font-weight: 800;
+    gap: 8px;
+  }
+  .button svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+  }
+  .button.secondary {
+    background: #ececec;
+    color: #222;
+  }
+  .button.disabled {
+    background: #f3f3f3;
+    color: #777;
+    cursor: not-allowed;
+  }
+  .hero-kicker {
+    max-width: 920px;
+    margin: 24px auto 0;
+    color: #20242a;
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1.38;
+  }
+  /*
+  .brain-showcase {
+    position: relative;
+    overflow: hidden;
+    width: min(1120px, calc(100% - 32px));
+    margin: 24px auto 0;
+    min-height: 450px;
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 52% 44%, rgba(45, 107, 178, 0.18), transparent 34rem),
+      linear-gradient(180deg, #fbfbfb, #f1f4f6);
+    border: 1px solid var(--line);
+  }
+  #brain-canvas {
+    width: 100%;
+    height: 450px;
+    display: block;
+    cursor: grab;
+  }
+  */
+  .teaser-wide {
+    width: min(1180px, calc(100% - 32px));
+    margin: 20px auto 42px;
+    padding: clamp(10px, 1.8vw, 18px);
+    border: 1px solid rgba(37, 95, 158, 0.13);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(37, 95, 158, 0.16), transparent 22rem),
+      radial-gradient(circle at 82% 72%, rgba(47, 122, 83, 0.12), transparent 20rem),
+      linear-gradient(135deg, rgba(245, 248, 252, 0.92), rgba(255, 255, 255, 0.72));
+    box-shadow: 0 28px 80px rgba(17, 32, 52, 0.16);
+  }
+  .teaser-question {
+    margin: 0 auto 18px;
+    padding: 9px 14px;
+    max-width: 820px;
+    border: 1px solid #6085c8;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.78);
+    font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.08rem, 2.2vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .teaser-heading {
+    margin: 8px 0 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 800;
+    text-align: justify;
+  }
+  .teaser-heading strong {
+    color: var(--blue);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  .teaser-top,
+  .teaser-bottom {
+    display: grid;
+    align-items: center;
+    gap: 18px;
+  }
+  .teaser-top {
+    grid-template-columns: 1.35fr 1.35fr 0.26fr 1.05fr;
+  }
+  .teaser-bottom {
+    grid-template-columns: 1.08fr 1fr 1fr;
+    align-items: stretch;
+  }
+  .teaser-pair,
+  .teaser-brain-card,
+  .teaser-panel {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.76);
+  }
+  .teaser-pair {
+    display: grid;
+    grid-template-columns: minmax(72px, 0.82fr) 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .teaser-brain-card {
+    padding: 8px;
+    text-align: justify;
+  }
+  .teaser-panel {
+    padding: 14px;
+    border: 1px solid rgba(55, 89, 134, 0.16);
+  }
+  .teaser-label {
+    margin: 8px 0 0;
+    color: #1f2f43;
+    font-size: 0.93rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+  .teaser-score {
+    color: #d9412e;
+    font-weight: 900;
+  }
+  .teaser-success {
+    color: var(--green);
+    font-weight: 900;
+  }
+  .teaser-muted {
+    color: #555;
+  }
+  .teaser-arrow {
+    width: 42px;
+    height: 3px;
+    justify-self: center;
+    background: #111;
+    position: relative;
+  }
+  .teaser-arrow::after {
+    content: "";
+    position: absolute;
+    right: -2px;
+    top: -7px;
+    border-left: 14px solid #111;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+  .teaser-rule {
+    height: 1px;
+    margin: 18px 0 12px;
+    background: linear-gradient(90deg, transparent, rgba(20, 30, 40, 0.38), transparent);
+  }
+  .crop-svg {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f6f6f6;
+  }
+  .teaser-thumb {
+    aspect-ratio: 1;
+    border: 3px solid #2d7b33;
+    object-fit: cover;
+  }
+  .teaser-edit {
+    border-color: #cc5b22;
+  }
+  .teaser-brain {
+    aspect-ratio: 1.38;
+    background: transparent;
+  }
+  .teaser-brain-wide {
+    aspect-ratio: 1.18;
+    background: transparent;
+  }
+  .teaser-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .teaser-panel h3 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  .teaser-verdict {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    margin-top: 8px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 1.22rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .teaser-verdict img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+  .teaser-verdict img.teaser-x {
+    width: 42px;
+    height: 42px;
+  }
+  .teaser-slide {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(20, 31, 45, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+  }
+  .slide-title {
+    position: absolute;
+    left: 11.5%;
+    top: 3.2%;
+    width: 77%;
+    padding: 0.35% 1%;
+    border: 1.5px solid #4f78c1;
+    border-radius: 5px;
+    background: #f7fbff;
+    text-align: justify;
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(0.5rem, 1.55vw, 1.22rem);
+    font-weight: 700;
+    line-height: 1.05;
+  }
+  .slide-text {
+    position: absolute;
+    margin: 0;
+    color: #060606;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+  .slide-section {
+    left: 7.5%;
+    font-size: clamp(0.48rem, 1.36vw, 1.08rem);
+  }
+  .slide-prior { top: 10.7%; }
+  .slide-causal { top: 34%; }
+  .slide-causal u { color: #143f85; }
+  .slide-subhead {
+    top: 40.5%;
+    font-size: clamp(0.42rem, 1.18vw, 0.95rem);
+    text-align: justify;
+  }
+  .slide-small {
+    font-size: clamp(0.38rem, 0.98vw, 0.78rem);
+    text-align: justify;
+    font-weight: 500;
+  }
+  .slide-img,
+  .slide-mark,
+  .slide-arrow {
+    position: absolute;
+  }
+  .slide-img svg {
+    width: 100%;
+    height: 100%;
+  }
+  .slide-thumb svg {
+    border: 0.22vw solid #2f8a36;
+  }
+  .slide-edit svg {
+    border-color: #cb5a20;
+  }
+  .slide-num {
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    padding: 0.2% 3.5%;
+    background: #e96b2e;
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: clamp(0.34rem, 0.78vw, 0.62rem);
+    font-weight: 800;
+    line-height: 1;
+  }
+  .slide-brain-label {
+    position: absolute;
+    width: 13%;
+    margin: 0;
+    color: #111;
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(0.38rem, 1.02vw, 0.82rem);
+    line-height: 1.05;
+    text-align: justify;
+  }
+  .slide-score {
+    color: #e42d25;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+  }
+  .slide-orange { color: #f0a14a; }
+  .slide-arrow {
+    height: 0.28%;
+    background: #111;
+  }
+  .slide-arrow::after {
+    content: "";
+    position: absolute;
+    right: -0.6vw;
+    top: -0.45vw;
+    border-left: 0.85vw solid #111;
+    border-top: 0.5vw solid transparent;
+    border-bottom: 0.5vw solid transparent;
+  }
+  .slide-blue-arrow {
+    background: #263f89;
+  }
+  .slide-blue-arrow::after {
+    border-left-color: #263f89;
+  }
+  .slide-divider {
+    position: absolute;
+    top: 32%;
+    left: 8%;
+    width: 77%;
+    height: 1px;
+    background: #777;
+  }
+  .slide-vline {
+    position: absolute;
+    top: 44.8%;
+    height: 42.8%;
+    width: 1px;
+    background: #9b9b9b;
+  }
+  .slide-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  section {
+    padding: 34px 0;
+    border-top: 1px solid var(--line);
+  }
+  h2 {
+    max-width: 980px;
+    margin: 0 auto 18px;
+    text-align: justify;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: clamp(1.62rem, 3.1vw, 2.35rem);
+    line-height: 1.14;
+    font-weight: 600;
+  }
+  h3 {
+    margin: 0 0 10px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 1.1rem;
+  }
+  p { margin: 0 0 16px; }
+  .lead {
+    max-width: 980px;
+    margin: 0 auto 24px;
+    color: #333;
+    text-align: justify;
+    font-size: 1.08rem;
+  }
+  .abstract-section {
+    padding-top: 28px;
+  }
+  .abstract-text {
+    max-width: 980px;
+    margin: 0 auto;
+    color: #30343a;
+    text-align: justify;
+    font-size: 1.04rem;
+    line-height: 1.72;
+  }
+  .grid-2,
+  .grid-3 {
+    display: grid;
+    gap: 18px;
+  }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .panel {
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+  }
+  .panel.soft { background: var(--soft); box-shadow: none; }
+  .panel img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  .mini-brain {
+    height: 170px;
+    object-fit: contain;
+    background: #fff;
+  }
+  .stimuli {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+  .stimuli img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .pipe {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .arrow {
+    width: 38px;
+    height: 2px;
+    background: #444;
+    position: relative;
+  }
+  .arrow::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -5px;
+    border-left: 10px solid #444;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+  .map-img {
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .figure-stack {
+    border-top: 0;
+    padding-top: 8px;
+  }
+  .figure-card {
+    width: min(1040px, calc(100% - 32px));
+    margin: 0 auto 22px;
+    padding: clamp(10px, 1.8vw, 18px);
+    border: 1px solid rgba(37, 95, 158, 0.13);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(37, 95, 158, 0.12), transparent 22rem),
+      radial-gradient(circle at 82% 72%, rgba(47, 122, 83, 0.1), transparent 20rem),
+      linear-gradient(135deg, rgba(245, 248, 252, 0.92), rgba(255, 255, 255, 0.78));
+    box-shadow: 0 18px 54px rgba(17, 32, 52, 0.11);
+  }
+  .figure-card img,
+  .figure-card video {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(20, 31, 45, 0.1);
+    box-shadow: 0 14px 36px rgba(17, 32, 52, 0.08);
+  }
+  .method-explainer {
+    max-width: 900px;
+    margin: 2px auto 24px;
+    color: #30343a;
+    text-align: justify;
+    font-size: clamp(1rem, 1.7vw, 1.18rem);
+    line-height: 1.65;
+  }
+  .footer {
+    padding: 22px 0 36px;
+    border-top: 1px solid var(--line);
+    color: #666;
+    text-align: justify;
+    font-size: 0.92rem;
+  }
+  .bibtex-box {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f7f7f7;
+  }
+  .bibtex-box pre {
+    margin: 0;
+    color: #2b2f35;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    white-space: pre;
+  }
+  @media (max-width: 800px) {
+    /*
+    .brain-showcase { min-height: 390px; }
+    #brain-canvas { height: 390px; }
+    */
+    .teaser-wide { margin-top: 14px; }
+    .teaser-top,
+    .teaser-bottom {
+      grid-template-columns: 1fr;
+    }
+    .teaser-arrow {
+      width: 3px;
+      height: 32px;
+    }
+    .teaser-arrow::after {
+      right: -7px;
+      top: auto;
+      bottom: -2px;
+      border-top: 14px solid #111;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 0;
+    }
+    .grid-2,
+    .grid-3,
+    .pipe {
+      grid-template-columns: 1fr;
+    }
+    .arrow {
+      width: 2px;
+      height: 28px;
+      justify-self: center;
+    }
+    .arrow::after {
+      right: -5px;
+      top: auto;
+      bottom: -1px;
+      border-top: 10px solid #444;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <main id="top">
+    <section class="hero" aria-label="BrainCause introduction">
+      <div class="container">
+        <h1>From Activation to Causality</h1>
+        <p class="subtitle">Discovery of Causal Visual Representations in the Human Brain</p>
+        <p class="authors">
+          <a class="author-link" href="mailto:yuval.golbari@weizmann.ac.il">Yuval Golbari</a><sup>1,*</sup>,
+          <a class="author-link" href="mailto:navve.wasserman@weizmann.ac.il">Navve Wasserman</a><sup>1,*</sup>,
+          <a class="author-link" href="mailto:matias.cosarinsky@gmail.com">Matias Cosarinsky</a><sup>1</sup>,
+          <a class="author-link" href="mailto:roman.beliy@weizmann.ac.il">Roman Beliy</a><sup>1</sup>,
+          <a class="author-link" href="mailto:oliva@mit.edu">Aude Oliva</a><sup>2</sup>,
+          <a class="author-link" href="mailto:torralba@csail.mit.edu">Antonio Torralba</a><sup>2</sup>,
+          <a class="author-link" href="mailto:michal.irani@weizmann.ac.il">Michal Irani</a><sup>1</sup>,
+          <a class="author-link" href="mailto:tamarott@mit.edu">Tamar Rott Shaham</a><sup>2</sup>
+        </p>
+        <p class="equal-note">* Equal contribution</p>
+        <div class="affiliation-logos" aria-label="Affiliations">
+          <span class="affiliation-logo">
+            <span class="affiliation-number">1</span>
+            <img class="weizmann-logo" src="assets/logos/weizmann-logo.svg" alt="Weizmann Institute of Science" />
+          </span>
+          <span class="affiliation-logo">
+            <span class="affiliation-number">2</span>
+            <img class="mit-logo" src="assets/logos/mit-logo.svg" alt="Massachusetts Institute of Technology" />
+          </span>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://arxiv.org/pdf/2605.23895" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6V2Zm7 1.8V8h4.2L13 3.8ZM8 12v1.6h8V12H8Zm0 3.2v1.6h8v-1.6H8Zm0 3.2V20h5v-1.6H8Z"/></svg>
+            Paper
+          </a>
+          <a class="button" href="https://huggingface.co/datasets/BrainCause/Concept_Targeted_Causal_Images" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7.58 3 4 4.34 4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6c0-1.66-3.58-3-8-3Zm0 2c3.87 0 6 .96 6 1s-2.13 1-6 1-6-.96-6-1 2.13-1 6-1ZM6 9.1c1.45.59 3.55.9 6 .9s4.55-.31 6-.9V12c0 .04-2.13 1-6 1s-6-.96-6-1V9.1Zm0 6c1.45.59 3.55.9 6 .9s4.55-.31 6-.9V18c0 .04-2.13 1-6 1s-6-.96-6-1v-2.9Z"/></svg>
+            Data
+          </a>
+          <a class="button disabled" href="#" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.6-5-4.6 5-4.6 1.35 1.48L6.65 12l3.4 3.12L8.7 16.6Zm6.6 0-1.35-1.48 3.4-3.12-3.4-3.12L15.3 7.4l5 4.6-5 4.6ZM11.1 19l-1.9-.62L12.9 5l1.9.62L11.1 19Z"/></svg>
+            Code
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="abstract" class="abstract-section">
+      <div class="container">
+        <p class="abstract-text"><strong>Overview.</strong> Identifying which brain regions represent a visual concept in the human brain is a central challenge in neuroscience. Strong activation alone does not establish that a region represents the concept itself, as responses may instead be driven by correlated visual or semantic cues. We introduce BrainCause, an automated framework that combines generative and brain models to synthesize controlled stimuli and validate neural representations through targeted causal testing. Given a query specifying a concept of interest, our framework constructs targeted stimulus sets comprising concept images, counterfactual edits that remove the target concept while preserving other image content, and images with candidate correlated distractors. Critically, we show that without causal validation, a large fraction of localizations would be false positives, confirming that activation alone is insufficient evidence of representation. 
+          BrainCause returns validated candidate representations and proposes follow-up fMRI experiments to further test or extend its discoveries. Our approach successfully recovers known functional localizations and identifies new candidate representations across dozens of concepts, validated on both predicted and measured fMRI data.</p>
+      </div>
+      <!--
+      <div class="brain-showcase" aria-label="Interactive 3D brain visualization">
+        <canvas id="brain-canvas"></canvas>
+      </div>
+      -->
+    </section>
+
+    <section id="teaser" class="figure-stack">
+      <div class="container">
+        <!--
+        <h2>Is High Activation Enough?</h2>
+        -->
+        <!--
+        <p class="lead">Existing approaches often localize functional regions using category contrasts, identifying voxels or regions that respond more strongly to a target category than to other categories. Yet activation alone does not establish that the region represents the concept itself, since responses may instead be driven by correlated visual or semantic cues. BrainCause therefore constructs targeted stimulus sets that isolate the concept from correlated visual and semantic factors, including counterfactual edits that remove the target concept while preserving other image content.</p>
+        -->
+      </div>
+      <div class="figure-card">
+        <video
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="BrainCause teaser video comparing activation-focused discovery with causal discovery and evaluation"
+        >
+          <source src="assets/gifs.mp4" type="video/mp4" />
+          <img src="assets/final-ppt-media/teaser.png" alt="BrainCause teaser comparing activation-focused discovery with causal discovery and evaluation" />
+        </video>
+      </div>
+    </section>
+
+    <section id="method" class="figure-stack">
+      <div class="container">
+        <h2>BrainCause Builds Controlled Visual Evidence</h2>
+        <p class="lead">Given a target concept, BrainCause constructs a causal dataset designed to isolate the concept from correlated visual and semantic factors. The dataset includes positive images, semantic negatives, and counterfactual negatives in which the target concept is removed or replaced while preserving the rest of the image.</p>
+      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/method.png" alt="BrainCause method pipeline for generating controlled stimuli and evaluating causal brain responses" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Causal Testing Examples</h2>
+<p class="lead">The top row shows regions discovered by BrainCause: they respond strongly to positive images, but drop for counterfactual edits and semantic negatives. The bottom row shows regions found by activation alone, which often remain highly active after edits or for related negatives, indicating false positives driven by correlated cues.</p>      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/edits.png" alt="Causal edits and semantic negatives used to evaluate discovered brain regions" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Causal Ranking Reduces False Discoveries</h2>
+<p class="lead">Each point represents one concept: the x-axis shows the score used for discovery on the training set, and the y-axis shows causal validation on the held-out evaluation set. Activation-based discovery frequently selects regions that respond strongly to the target concept but are not causally specific, leading to many false positives. By ranking candidates using causal score, BrainCause suppresses correlation-driven discoveries and recovers more faithful concept representations.</p>      <div class="figure-card">
+        <img src="assets/final-ppt-media/FPR.png" alt="Causal ranking reduces false discoveries by lowering false positives and improving true positives" />
+      </div>
+    </section>
+
+    <section id="figures">
+      <div class="container">
+        <h2>Concepts Discovered by Causal Evaluation</h2>
+        <p class="lead">We show voxel-wise causal scores on brain maps for three example concepts, with representative positive images above each map. Each panel shows a flatmap of high-level visual cortex. Each voxel is colored by its causal score, where warmer colors indicate higher concept-specific causal evidence. Black outlines and labels mark NSD functional ROIs, allowing comparison with known visual regions.</p>
+      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/causal_concepts.png" alt="Voxel-wise causal scores for example concepts on high-level visual cortex flatmaps" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Fine-Grained Organization of Related Concepts</h2>
+          <p class="lead">On the left, body-related concepts such as human face, human hand, and human leg show distinct voxel patterns across face- and body-selective regions. On the right, text-related concepts such as handwritten text, symbolic signs, and logos show distinct voxel patterns across word- and object-related visual areas. These results show that BrainCause discovers nearby semantic categories within high-level visual cortex.</p>
+      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/clusters.png" alt="Fine-grained organization of related body and text concepts across cortical maps" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Cross-Subject Consistency</h2>
+            <p class="lead">We compare BrainCause causal maps for the same concepts across NSD subjects. Columns show concepts, rows show subjects, and warmer colors indicate stronger causal evidence. Across subjects, high-scoring voxels appear in similar highlevel
+visual regions, demonstrating that BrainCause discovers spatially localized and reproducible
+representations despite individual variability in cortical organization.</p>
+      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/subjects.png" alt="Cross-subject concept maps showing consistency of discovered representations" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Causal Versus Activation-Based Localization</h2>
+            <p class="lead">Maps compare BrainCause causal scoring with activation-based localization for Child, Clock, and Body Part. Across these examples, activation-based localization produces broad high-response patterns, while causal scoring yields more selective maps by suppressing responses driven by correlated visual or semantic cues.</p>
+      </div>
+      <div class="figure-card">
+        <img src="assets/final-ppt-media/comp.png" alt="Concepts discovered by causal evaluation with example stimuli and cortical maps" />
+      </div>
+    </section>
+
+    <section id="bibtex">
+      <div class="container">
+        <h2>BibTeX</h2>
+        <div class="bibtex-box">
+<pre>@article{golbari2026braincause,
+  title   = {From Activation to Causality: Discovery of Causal Visual Representations in the Human Brain},
+  author  = {Golbari, Yuval and Wasserman, Navve and Cosarinsky, Matias and Beliy, Roman and Oliva, Aude and Torralba, Antonio and Irani, Michal and Rott Shaham, Tamar},
+  journal = {arXiv preprint arXiv:2605.23895},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2605.23895},
+  doi     = {10.48550/arXiv.2605.23895}
+}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container">BrainCause project page.</div></footer>
+
+<script>
+/*
+3D brain visualization disabled.
+(() => {
+  const canvas = document.getElementById("brain-canvas");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let width = 0, height = 0, dpr = 1;
+  let yaw = -0.34, pitch = 0.16, targetYaw = yaw, targetPitch = pitch;
+  let dragging = false, lastX = 0, lastY = 0;
+  const points = [];
+  const surfaceNodes = [];
+  const surfaceEdges = [];
+  const surfaceFaces = [];
+  const foldLines = [];
+  const falsePositiveSpots = [
+    { x: -0.58, y: -0.08, z: 0.44, r: 0.5 },
+    { x: 0.48, y: -0.04, z: 0.36, r: 0.48 },
+    { x: -0.18, y: 0.34, z: -0.1, r: 0.42 },
+    { x: 0.24, y: 0.22, z: -0.34, r: 0.4 },
+    { x: 0.02, y: -0.42, z: 0.22, r: 0.36 }
+  ];
+  const truePositiveSpots = [
+    { x: -0.44, y: -0.2, z: 0.46, r: 0.32 },
+    { x: 0.42, y: -0.18, z: 0.36, r: 0.34 },
+    { x: 0.08, y: 0.28, z: -0.28, r: 0.3 }
+  ];
+  function rand(seed) {
+    let t = seed + 0x6D2B79F5;
+    return () => {
+      t += 0x6D2B79F5;
+      let r = Math.imul(t ^ (t >>> 15), 1 | t);
+      r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+      return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  const random = rand(42);
+  function makeSurfaceMesh() {
+    surfaceNodes.length = 0;
+    surfaceEdges.length = 0;
+    surfaceFaces.length = 0;
+    foldLines.length = 0;
+    const rings = 16, cols = 32;
+    for (const side of [-1, 1]) {
+      const offset = surfaceNodes.length;
+      for (let r = 0; r < rings; r++) {
+        const phi = 0.18 + (r / (rings - 1)) * (Math.PI - 0.36);
+        for (let c = 0; c < cols; c++) {
+          const theta = (c / cols) * Math.PI * 2;
+          const groove = 0.042 * Math.sin(theta * 8 + phi * 4) + 0.026 * Math.sin(theta * 15);
+          const sx = 0.6 + groove;
+          const sy = 0.82 + 0.02 * Math.cos(theta * 4);
+          const sz = 0.63 + 0.03 * Math.sin(phi * 6);
+          let x = side * (0.17 + sx * Math.sin(phi) * Math.cos(theta));
+          const y = sy * Math.cos(phi);
+          const z = sz * Math.sin(phi) * Math.sin(theta);
+          x += side * Math.exp(-Math.pow(x / 0.13, 2)) * 0.12;
+          surfaceNodes.push({ x, y, z });
+        }
+      }
+      for (let r = 0; r < rings - 1; r++) {
+        for (let c = 0; c < cols; c++) {
+          const current = offset + r * cols + c;
+          const nextCol = offset + r * cols + ((c + 1) % cols);
+          const nextRow = current + cols;
+          const nextBoth = offset + (r + 1) * cols + ((c + 1) % cols);
+          surfaceFaces.push([current, nextCol, nextBoth, nextRow]);
+          if (c % 3 === 0) surfaceEdges.push([current, nextCol]);
+          if (r < rings - 1 && c % 5 === 0) surfaceEdges.push([current, current + cols]);
+        }
+      }
+      const folds = [
+        { y: -0.38, z: 0.22, amp: 0.05 },
+        { y: -0.16, z: 0.28, amp: -0.04 },
+        { y: 0.08, z: 0.24, amp: 0.045 },
+        { y: 0.31, z: 0.18, amp: -0.035 }
+      ];
+      for (const fold of folds) {
+        const line = [];
+        for (let i = 0; i <= 42; i++) {
+          const t = i / 42;
+          line.push({
+            x: side * (0.22 + 0.48 * t),
+            y: fold.y + fold.amp * Math.sin(t * Math.PI * 2.2),
+            z: fold.z * Math.sin(t * Math.PI) + 0.035 * Math.cos(t * Math.PI * 4)
+          });
+        }
+        foldLines.push(line);
+      }
+    }
+  }
+  function makeBrain() {
+    points.length = 0;
+    for (let i = 0; i < 1450; i++) {
+      const side = random() > 0.5 ? 1 : -1;
+      const theta = random() * Math.PI * 2;
+      const phi = Math.acos(2 * random() - 1);
+      const groove = 0.055 * Math.sin(theta * 8 + phi * 5) + 0.035 * Math.sin(theta * 15);
+      const sx = 0.52 + groove, sy = 0.78 + 0.03 * Math.cos(theta * 5), sz = 0.58 + 0.04 * Math.sin(phi * 6);
+      let x = side * (0.18 + sx * Math.sin(phi) * Math.cos(theta));
+      let y = sy * Math.cos(phi);
+      let z = sz * Math.sin(phi) * Math.sin(theta);
+      x += side * Math.exp(-Math.pow(x / 0.12, 2)) * 0.13;
+      if (!(Math.abs(x) > 0.18 && y < 0.72) || random() < 0.18) continue;
+      let falseHeat = 0, trueHeat = 0;
+      for (const spot of falsePositiveSpots) {
+        falseHeat = Math.max(falseHeat, Math.max(0, 1 - Math.hypot(x - spot.x, y - spot.y, z - spot.z) / spot.r));
+      }
+      for (const spot of truePositiveSpots) {
+        trueHeat = Math.max(trueHeat, Math.max(0, 1 - Math.hypot(x - spot.x, y - spot.y, z - spot.z) / spot.r));
+      }
+      const activationLabel = trueHeat > 0.58 ? "true" : (falseHeat > 0.3 ? "false" : "neutral");
+      const causalLabel = trueHeat > 0.28 ? "true" : "neutral";
+      const activationHeat = activationLabel === "neutral" ? 0 : Math.max(falseHeat, trueHeat);
+      const causalHeat = causalLabel === "neutral" ? 0 : trueHeat;
+      points.push({ x, y, z, size: 1.4 + random() * 2.2, activationHeat, causalHeat, activationLabel, causalLabel, phase: random() * Math.PI * 2 });
+    }
+  }
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width; height = rect.height; dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, Math.floor(width * dpr));
+    canvas.height = Math.max(1, Math.floor(height * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function rotate(p) {
+    const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const x1 = p.x * cy - p.z * sy;
+    const z1 = p.x * sy + p.z * cy;
+    return { x: x1, y: p.y * cp - z1 * sp, z: p.y * sp + z1 * cp };
+  }
+  function draw(time) {
+    yaw += (targetYaw - yaw) * 0.08;
+    pitch += (targetPitch - pitch) * 0.08;
+    if (!dragging && !prefersReduced) targetYaw += 0.0017;
+    ctx.clearRect(0, 0, width, height);
+    const grd = ctx.createRadialGradient(width * 0.52, height * 0.42, 30, width * 0.52, height * 0.42, Math.max(width, height) * 0.64);
+    grd.addColorStop(0, "rgba(255,255,255,0.78)");
+    grd.addColorStop(0.58, "rgba(255,255,255,0.22)");
+    grd.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, width, height);
+    const scale = Math.min(width * 0.52, height) * 0.39;
+    function projectBrain(kind, centerX) {
+      return points.map((p) => {
+      const r = rotate(p), depth = 1.7 + r.z;
+      const heat = kind === "causal" ? p.causalHeat : p.activationHeat;
+      const label = kind === "causal" ? p.causalLabel : p.activationLabel;
+      return {
+        x: centerX + (r.x / depth) * scale,
+        y: height * 0.48 + (r.y / depth) * scale,
+        z: r.z,
+        size: (p.size + heat * 3.2) * (1.45 / depth),
+        heat,
+        color: label === "true" ? "#259a55" : (label === "false" ? "#d83b2d" : "rgba(76, 95, 112, 0.5)"),
+        phase: p.phase
+      };
+      }).sort((a, b) => a.z - b.z);
+    }
+    function projectPoint(point, centerX, scaleFactor = 1) {
+      const r = rotate(point), depth = 1.7 + r.z;
+      return {
+        x: centerX + (r.x / depth) * scale * scaleFactor,
+        y: height * 0.48 + (r.y / depth) * scale * scaleFactor,
+        z: r.z
+      };
+    }
+    function drawProjectedPath(points, centerX, close = false) {
+      const projected = points.map((point) => projectPoint(point, centerX, 1.06));
+      ctx.beginPath();
+      projected.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      if (close) ctx.closePath();
+    }
+    function drawBrainSurface(centerX) {
+      const projected = surfaceNodes.map((node) => {
+        const r = rotate(node), depth = 1.7 + r.z;
+        return {
+          x: centerX + (r.x / depth) * scale,
+          y: height * 0.48 + (r.y / depth) * scale,
+          z: r.z
+        };
+      });
+      ctx.save();
+      const faces = surfaceFaces.map((face) => ({
+        face,
+        z: face.reduce((sum, index) => sum + projected[index].z, 0) / face.length
+      })).sort((a, b) => a.z - b.z);
+      for (const { face, z } of faces) {
+        const shade = Math.max(0, Math.min(1, (z + 0.72) / 1.55));
+        const alpha = 0.16 + shade * 0.12;
+        const tone = Math.round(226 + shade * 18);
+        ctx.fillStyle = `rgba(${tone}, ${Math.min(248, tone + 7)}, ${Math.min(255, tone + 14)}, ${alpha})`;
+        ctx.beginPath();
+        face.forEach((index, i) => {
+          const p = projected[index];
+          if (i === 0) ctx.moveTo(p.x, p.y);
+          else ctx.lineTo(p.x, p.y);
+        });
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.lineWidth = 1;
+      for (const [a, b] of surfaceEdges) {
+        const p = projected[a], q = projected[b];
+        const alpha = 0.03 + Math.max(0, (p.z + q.z) * 0.5 + 0.55) * 0.055;
+        ctx.strokeStyle = `rgba(54, 70, 84, ${Math.min(0.11, alpha)})`;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.stroke();
+      }
+      ctx.lineWidth = 1.2;
+      for (const line of foldLines) {
+        const projectedLine = line.map((point) => projectPoint(point, centerX));
+        const avgZ = projectedLine.reduce((sum, point) => sum + point.z, 0) / projectedLine.length;
+        ctx.strokeStyle = `rgba(43, 58, 70, ${0.08 + Math.max(0, avgZ + 0.35) * 0.1})`;
+        ctx.beginPath();
+        projectedLine.forEach((point, index) => {
+          if (index === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        });
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    function drawBrain(projected) {
+    ctx.lineWidth = 1;
+    for (let i = 0; i < projected.length; i += 9) {
+      const a = projected[i];
+      for (let j = i + 9; j < Math.min(projected.length, i + 90); j += 14) {
+        const b = projected[j], dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if (dist < 34 && Math.abs(a.z - b.z) < 0.18) {
+          ctx.strokeStyle = `rgba(23, 32, 42, ${(1 - dist / 34) * (0.035 + Math.max(a.heat, b.heat) * 0.1)})`;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+    }
+    for (const p of projected) {
+      const pulse = 1 + Math.sin(time * 0.002 + p.phase) * 0.14 * p.heat;
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.heat > 0 ? 0.32 + p.heat * 0.54 : 0.34;
+      ctx.arc(p.x, p.y, p.size * pulse, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    }
+    const activationProjected = projectBrain("activation", width * 0.3);
+    const causalProjected = projectBrain("causal", width * 0.7);
+    drawBrainSurface(width * 0.3);
+    drawBrainSurface(width * 0.7);
+    drawBrain(activationProjected);
+    drawBrain(causalProjected);
+    ctx.globalAlpha = 1;
+    ctx.textAlign = "center";
+    ctx.fillStyle = "rgba(23, 32, 42, 0.82)";
+    const compactCanvas = width < 520;
+    ctx.font = `${compactCanvas ? "800 15px" : "800 18px"} Google Sans, Noto Sans, sans-serif`;
+    ctx.fillText(compactCanvas ? "Activation" : "Activation-Based", width * 0.3, 38);
+    ctx.fillText(compactCanvas ? "Causal" : "Causal-Based", width * 0.7, 38);
+    ctx.textAlign = "left";
+    ctx.font = "800 12px Google Sans, Noto Sans, sans-serif";
+    const legendX = 34, legendY = height - 34;
+    ctx.fillStyle = "rgba(255,255,255,0.82)";
+    ctx.strokeStyle = "rgba(20,31,45,0.12)";
+    ctx.lineWidth = 1;
+    const boxX = legendX - 12, boxY = legendY - 20, boxW = compactCanvas ? 332 : 382, boxH = 36, radius = 14;
+    ctx.beginPath();
+    ctx.moveTo(boxX + radius, boxY);
+    ctx.lineTo(boxX + boxW - radius, boxY);
+    ctx.quadraticCurveTo(boxX + boxW, boxY, boxX + boxW, boxY + radius);
+    ctx.lineTo(boxX + boxW, boxY + boxH - radius);
+    ctx.quadraticCurveTo(boxX + boxW, boxY + boxH, boxX + boxW - radius, boxY + boxH);
+    ctx.lineTo(boxX + radius, boxY + boxH);
+    ctx.quadraticCurveTo(boxX, boxY + boxH, boxX, boxY + boxH - radius);
+    ctx.lineTo(boxX, boxY + radius);
+    ctx.quadraticCurveTo(boxX, boxY, boxX + radius, boxY);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#259a55";
+    ctx.beginPath(); ctx.arc(legendX, legendY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#26384d";
+    ctx.fillText("green = causal evidence", legendX + 12, legendY + 4);
+    ctx.fillStyle = "#d83b2d";
+    ctx.beginPath(); ctx.arc(legendX + (compactCanvas ? 172 : 210), legendY, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#26384d";
+    ctx.fillText("red = activation-only", legendX + (compactCanvas ? 196 : 234), legendY + 4);
+    requestAnimationFrame(draw);
+  }
+  canvas.addEventListener("pointerdown", (event) => {
+    dragging = true; canvas.setPointerCapture(event.pointerId); lastX = event.clientX; lastY = event.clientY;
+  });
+  canvas.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    targetYaw += (event.clientX - lastX) * 0.006;
+    targetPitch = Math.max(-0.75, Math.min(0.75, targetPitch + (event.clientY - lastY) * 0.004));
+    lastX = event.clientX; lastY = event.clientY;
+  });
+  canvas.addEventListener("pointerup", () => { dragging = false; });
+  canvas.addEventListener("pointercancel", () => { dragging = false; });
+  window.addEventListener("resize", resize);
+  makeSurfaceMesh();
+  makeBrain();
+  resize();
+  requestAnimationFrame(draw);
+})();
+*/
+</script>
+</body>
+</html>
