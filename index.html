@@ -3,17 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>BrainCause | From Activation to Causality</title>
-<meta name="description" content="BrainCause discovers and validates causal visual representations in the human brain using controlled generative stimuli, counterfactual edits, and image-to-fMRI prediction." />
-<link rel="canonical" href="https://yuvalgol123.github.io/BrainCause/" />
+<title>BrainTRACE | From Activation to Specificity</title>
+<meta name="description" content="BrainTRACE discovers and validates concept-specific visual representations in the human brain using controlled generative stimuli, counterfactual edits, and image-to-fMRI prediction." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="BrainCause | From Activation to Causality" />
-<meta property="og:description" content="A project page for causal discovery of visual representations in the human brain." />
-<meta property="og:url" content="https://yuvalgol123.github.io/BrainCause/" />
+<meta property="og:title" content="BrainTRACE| From Activation to Specificity" />
+<meta property="og:description" content="A project page for discovering and evaluating concept-specific visual representations in the human brain." /><meta property="og:url" content="https://yuvalgol123.github.io/BrainTrace/" />
 <meta property="og:image" content="assets/final-ppt-media/teaser.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BrainCause | From Activation to Causality" />
-<meta name="twitter:description" content="Discovering concept-specific brain representations with counterfactual causal testing." />
+<meta name="twitter:title" content="BrainTRACE | From Activation to Specificity" />
+<meta name="twitter:description" content="Discovering concept-specific brain representations with counterfactual-specificity testing." />
 <meta name="theme-color" content="#f4f1ea" />
 <meta name="robots" content="index,follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -396,8 +394,6 @@
     font-size: clamp(0.48rem, 1.36vw, 1.08rem);
   }
   .slide-prior { top: 10.7%; }
-  .slide-causal { top: 34%; }
-  .slide-causal u { color: #143f85; }
   .slide-subhead {
     top: 40.5%;
     font-size: clamp(0.42rem, 1.18vw, 0.95rem);
@@ -692,11 +688,10 @@
 </head>
 <body>
   <main id="top">
-    <section class="hero" aria-label="BrainCause introduction">
+    <section class="hero" aria-label="BrainTRACE introduction">
       <div class="container">
-        <h1>From Activation to Causality</h1>
-        <p class="subtitle">Discovery of Causal Visual Representations in the Human Brain</p>
-        <p class="authors">
+        <h1>From Activation to Specificity</h1>
+          <p class="subtitle">Automating Counterfactual Testing of Visual Representations in the Human Brain</p>        <p class="authors">
           <a class="author-link" href="mailto:yuval.golbari@weizmann.ac.il">Yuval Golbari</a><sup>1,*</sup>,
           <a class="author-link" href="mailto:navve.wasserman@weizmann.ac.il">Navve Wasserman</a><sup>1,*</sup>,
           <a class="author-link" href="mailto:matias.cosarinsky@gmail.com">Matias Cosarinsky</a><sup>1</sup>,
@@ -736,8 +731,8 @@
 
     <section id="abstract" class="abstract-section">
       <div class="container">
-        <p class="abstract-text"><strong>Overview.</strong> Identifying which brain regions represent a visual concept in the human brain is a central challenge in neuroscience. Strong activation alone does not establish that a region represents the concept itself, as responses may instead be driven by correlated visual or semantic cues. We introduce BrainCause, an automated framework that combines generative and brain models to synthesize controlled stimuli and validate neural representations through targeted causal testing. Given a query specifying a concept of interest, our framework constructs targeted stimulus sets comprising concept images, counterfactual edits that remove the target concept while preserving other image content, and images with candidate correlated distractors. Critically, we show that without causal validation, a large fraction of localizations would be false positives, confirming that activation alone is insufficient evidence of representation. 
-          BrainCause returns validated candidate representations and proposes follow-up fMRI experiments to further test or extend its discoveries. Our approach successfully recovers known functional localizations and identifies new candidate representations across dozens of concepts, validated on both predicted and measured fMRI data.</p>
+        <p class="abstract-text"><strong>Overview.</strong> Identifying which brain regions represent a visual concept in the human brain is a central challenge in neuroscience. Strong activation alone does not establish that a region represents the concept itself, as responses may instead be driven by correlated visual or semantic cues. We introduce BrainTRACE, an automated framework that combines generative and brain models to synthesize controlled stimuli and validate neural representations through targeted counterfactual-specificity testing. Given a query specifying a concept of interest, our framework constructs targeted stimulus sets comprising concept images, counterfactual edits that remove the target concept while preserving other image content, and images with candidate correlated distractors. Critically, we show that without counterfactual evaluation, a large fraction of localizations would be false positives, confirming that activation alone is insufficient evidence of representation.
+          BrainTRACE returns validated candidate representations and proposes follow-up fMRI experiments to further test or extend its discoveries. Our approach successfully recovers known functional localizations and identifies new candidate representations across dozens of concepts, validated on both predicted and measured fMRI data.</p>
       </div>
       <!--
       <div class="brain-showcase" aria-label="Interactive 3D brain visualization">
@@ -752,7 +747,7 @@
         <h2>Is High Activation Enough?</h2>
         -->
         <!--
-        <p class="lead">Existing approaches often localize functional regions using category contrasts, identifying voxels or regions that respond more strongly to a target category than to other categories. Yet activation alone does not establish that the region represents the concept itself, since responses may instead be driven by correlated visual or semantic cues. BrainCause therefore constructs targeted stimulus sets that isolate the concept from correlated visual and semantic factors, including counterfactual edits that remove the target concept while preserving other image content.</p>
+        <p class="lead">Existing approaches often localize functional regions using category contrasts, identifying voxels or regions that respond more strongly to a target category than to other categories. Yet activation alone does not establish that the region represents the concept itself, since responses may instead be driven by correlated visual or semantic cues. BrainTRACE therefore constructs targeted stimulus sets that isolate the concept from correlated visual and semantic factors, including counterfactual edits that remove the target concept while preserving other image content.</p>
         -->
       </div>
       <div class="figure-card">
@@ -761,55 +756,55 @@
           muted
           playsinline
           preload="metadata"
-          aria-label="BrainCause teaser video comparing activation-focused discovery with causal discovery and evaluation"
+          aria-label="BrainTRACE teaser video comparing activation-based discovery with counterfactual-specificity testing"
         >
           <source src="assets/gifs.mp4" type="video/mp4" />
-          <img src="assets/final-ppt-media/teaser.png" alt="BrainCause teaser comparing activation-focused discovery with causal discovery and evaluation" />
+          <img src="assets/final-ppt-media/teaser.png" alt="BrainTRACE teaser comparing activation-based discovery with counterfactual-specificity testing" />
         </video>
       </div>
     </section>
 
     <section id="method" class="figure-stack">
       <div class="container">
-        <h2>BrainCause Builds Controlled Visual Evidence</h2>
-        <p class="lead">Given a target concept, BrainCause constructs a causal dataset designed to isolate the concept from correlated visual and semantic factors. The dataset includes positive images, semantic negatives, and counterfactual negatives in which the target concept is removed or replaced while preserving the rest of the image.</p>
+        <h2>BrainTRACE Builds Controlled Visual Evidence</h2>
+        <p class="lead">Given a target concept, BrainTRACE constructs a targeted stimulus set designed to isolate the concept from correlated visual and semantic factors. The dataset includes positive images, semantic negatives, and counterfactual negatives in which the target concept is removed or replaced while preserving the rest of the image.</p>
       </div>
       <div class="figure-card">
-        <img src="assets/final-ppt-media/method.png" alt="BrainCause method pipeline for generating controlled stimuli and evaluating causal brain responses" />
+        <img src="assets/final-ppt-media/method.png" alt="BrainTRACE method pipeline for generating controlled stimuli and evaluating response specificity" />
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2>Causal Testing Examples</h2>
-<p class="lead">The top row shows regions discovered by BrainCause: they respond strongly to positive images, but drop for counterfactual edits and semantic negatives. The bottom row shows regions found by activation alone, which often remain highly active after edits or for related negatives, indicating false positives driven by correlated cues.</p>      </div>
+        <h2>Counterfactual-Specificity Testing Examples</h2>
+<p class="lead">The top row shows regions discovered by BrainTRACE: they respond strongly to positive images, but drop for counterfactual edits and semantic negatives. The bottom row shows regions found by activation alone, which often remain highly active after edits or for related negatives, indicating false positives driven by correlated cues.</p>      </div>
       <div class="figure-card">
-        <img src="assets/final-ppt-media/edits.png" alt="Causal edits and semantic negatives used to evaluate discovered brain regions" />
+        <img src="assets/final-ppt-media/edits.png" alt="Counterfactual edits and semantic negatives used to evaluate discovered brain regions" />
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2>Causal Ranking Reduces False Discoveries</h2>
-<p class="lead">Each point represents one concept: the x-axis shows the score used for discovery on the training set, and the y-axis shows causal validation on the held-out evaluation set. Activation-based discovery frequently selects regions that respond strongly to the target concept but are not causally specific, leading to many false positives. By ranking candidates using causal score, BrainCause suppresses correlation-driven discoveries and recovers more faithful concept representations.</p>      <div class="figure-card">
-        <img src="assets/final-ppt-media/FPR.png" alt="Causal ranking reduces false discoveries by lowering false positives and improving true positives" />
+        <h2>Specificity-Based Ranking Reduces False Discoveries</h2>
+<p class="lead">Each point represents one concept: the x-axis shows the score used for discovery on the training set, and the y-axis shows specificity evaluation on the held-out evaluation set. Activation-based discovery frequently selects regions that respond strongly to the target concept but do not exhibit specificity under the tested alternatives, leading to many false positives. By ranking candidates using specificity score, BrainTRACE suppresses correlation-driven discoveries and recovers more faithful concept representations.</p>      <div class="figure-card">
+        <img src="assets/final-ppt-media/FPR.png" alt="Specificity-Based Ranking Reduces False Discoveries by lowering false positives and improving true positives" />
       </div>
     </section>
 
     <section id="figures">
       <div class="container">
-        <h2>Concepts Discovered by Causal Evaluation</h2>
-        <p class="lead">We show voxel-wise causal scores on brain maps for three example concepts, with representative positive images above each map. Each panel shows a flatmap of high-level visual cortex. Each voxel is colored by its causal score, where warmer colors indicate higher concept-specific causal evidence. Black outlines and labels mark NSD functional ROIs, allowing comparison with known visual regions.</p>
+        <h2>Concepts Discovered by Specificity Evaluation</h2>
+        <p class="lead">We show voxel-wise specificity scores on brain maps for three example concepts, with representative positive images above each map. Each panel shows a flatmap of high-level visual cortex. Each voxel is colored by its specificity score, where warmer colors indicate stronger specificity evidence. Black outlines and labels mark NSD functional ROIs, allowing comparison with known visual regions.</p>
       </div>
       <div class="figure-card">
-        <img src="assets/final-ppt-media/causal_concepts.png" alt="Voxel-wise causal scores for example concepts on high-level visual cortex flatmaps" />
+        <img src="assets/final-ppt-media/specificity_concepts.png" alt="Voxel-wise specificity scores for example concepts on high-level visual cortex flatmaps" />
       </div>
     </section>
 
     <section>
       <div class="container">
         <h2>Fine-Grained Organization of Related Concepts</h2>
-          <p class="lead">On the left, body-related concepts such as human face, human hand, and human leg show distinct voxel patterns across face- and body-selective regions. On the right, text-related concepts such as handwritten text, symbolic signs, and logos show distinct voxel patterns across word- and object-related visual areas. These results show that BrainCause discovers nearby semantic categories within high-level visual cortex.</p>
+          <p class="lead">On the left, body-related concepts such as human face, human hand, and human leg show distinct voxel patterns across face- and body-selective regions. On the right, text-related concepts such as handwritten text, symbolic signs, and logos show distinct voxel patterns across word- and object-related visual areas. These results show that BrainTRACE discovers nearby semantic categories within high-level visual cortex.</p>
       </div>
       <div class="figure-card">
         <img src="assets/final-ppt-media/clusters.png" alt="Fine-grained organization of related body and text concepts across cortical maps" />
@@ -819,9 +814,7 @@
     <section>
       <div class="container">
         <h2>Cross-Subject Consistency</h2>
-            <p class="lead">We compare BrainCause causal maps for the same concepts across NSD subjects. Columns show concepts, rows show subjects, and warmer colors indicate stronger causal evidence. Across subjects, high-scoring voxels appear in similar highlevel
-visual regions, demonstrating that BrainCause discovers spatially localized and reproducible
-representations despite individual variability in cortical organization.</p>
+            <p class="lead">We compare BrainTRACE specificity maps for the same concepts across NSD subjects. Columns show concepts, rows show subjects, and warmer colors indicate stronger specificity evidence. Across subjects, high-scoring voxels appear in similar high-level visual regions, demonstrating that BrainTRACE discovers spatially localized and reproducible representations despite individual variability in cortical organization.</p>
       </div>
       <div class="figure-card">
         <img src="assets/final-ppt-media/subjects.png" alt="Cross-subject concept maps showing consistency of discovered representations" />
@@ -830,11 +823,11 @@ representations despite individual variability in cortical organization.</p>
 
     <section>
       <div class="container">
-        <h2>Causal Versus Activation-Based Localization</h2>
-            <p class="lead">Maps compare BrainCause causal scoring with activation-based localization for Child, Clock, and Body Part. Across these examples, activation-based localization produces broad high-response patterns, while causal scoring yields more selective maps by suppressing responses driven by correlated visual or semantic cues.</p>
+        <h2>Specificity- Versus Activation-Based Localization</h2>
+            <p class="lead">Maps compare BrainTRACE specificity scoring with activation-based localization for Child, Clock, and Body Part. Across these examples, activation-based localization produces broad high-response patterns, while specificity scoring yields more selective maps by suppressing responses driven by correlated visual or semantic cues.</p>
       </div>
       <div class="figure-card">
-        <img src="assets/final-ppt-media/comp.png" alt="Concepts discovered by causal evaluation with example stimuli and cortical maps" />
+        <img src="assets/final-ppt-media/comp.png" alt="Comparison of specificity-based and activation-based localization with example stimuli and cortical maps" />
       </div>
     </section>
 
@@ -842,8 +835,8 @@ representations despite individual variability in cortical organization.</p>
       <div class="container">
         <h2>BibTeX</h2>
         <div class="bibtex-box">
-<pre>@article{golbari2026braincause,
-  title   = {From Activation to Causality: Discovery of Causal Visual Representations in the Human Brain},
+<pre>@article{golbari2026braintrace,
+  title   = {From Activation to Specificity: Automating Counterfactual Testing of Visual Representations in the Human Brain},
   author  = {Golbari, Yuval and Wasserman, Navve and Cosarinsky, Matias and Beliy, Roman and Oliva, Aude and Torralba, Antonio and Irani, Michal and Rott Shaham, Tamar},
   journal = {arXiv preprint arXiv:2605.23895},
   year    = {2026},
@@ -854,317 +847,9 @@ representations despite individual variability in cortical organization.</p>
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="container">BrainCause project page.</div></footer>
+  <footer class="footer"><div class="container">BrainTRACE project page.</div></footer>
 
 <script>
-/*
-3D brain visualization disabled.
-(() => {
-  const canvas = document.getElementById("brain-canvas");
-  const ctx = canvas.getContext("2d", { alpha: true });
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let width = 0, height = 0, dpr = 1;
-  let yaw = -0.34, pitch = 0.16, targetYaw = yaw, targetPitch = pitch;
-  let dragging = false, lastX = 0, lastY = 0;
-  const points = [];
-  const surfaceNodes = [];
-  const surfaceEdges = [];
-  const surfaceFaces = [];
-  const foldLines = [];
-  const falsePositiveSpots = [
-    { x: -0.58, y: -0.08, z: 0.44, r: 0.5 },
-    { x: 0.48, y: -0.04, z: 0.36, r: 0.48 },
-    { x: -0.18, y: 0.34, z: -0.1, r: 0.42 },
-    { x: 0.24, y: 0.22, z: -0.34, r: 0.4 },
-    { x: 0.02, y: -0.42, z: 0.22, r: 0.36 }
-  ];
-  const truePositiveSpots = [
-    { x: -0.44, y: -0.2, z: 0.46, r: 0.32 },
-    { x: 0.42, y: -0.18, z: 0.36, r: 0.34 },
-    { x: 0.08, y: 0.28, z: -0.28, r: 0.3 }
-  ];
-  function rand(seed) {
-    let t = seed + 0x6D2B79F5;
-    return () => {
-      t += 0x6D2B79F5;
-      let r = Math.imul(t ^ (t >>> 15), 1 | t);
-      r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
-      return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
-    };
-  }
-  const random = rand(42);
-  function makeSurfaceMesh() {
-    surfaceNodes.length = 0;
-    surfaceEdges.length = 0;
-    surfaceFaces.length = 0;
-    foldLines.length = 0;
-    const rings = 16, cols = 32;
-    for (const side of [-1, 1]) {
-      const offset = surfaceNodes.length;
-      for (let r = 0; r < rings; r++) {
-        const phi = 0.18 + (r / (rings - 1)) * (Math.PI - 0.36);
-        for (let c = 0; c < cols; c++) {
-          const theta = (c / cols) * Math.PI * 2;
-          const groove = 0.042 * Math.sin(theta * 8 + phi * 4) + 0.026 * Math.sin(theta * 15);
-          const sx = 0.6 + groove;
-          const sy = 0.82 + 0.02 * Math.cos(theta * 4);
-          const sz = 0.63 + 0.03 * Math.sin(phi * 6);
-          let x = side * (0.17 + sx * Math.sin(phi) * Math.cos(theta));
-          const y = sy * Math.cos(phi);
-          const z = sz * Math.sin(phi) * Math.sin(theta);
-          x += side * Math.exp(-Math.pow(x / 0.13, 2)) * 0.12;
-          surfaceNodes.push({ x, y, z });
-        }
-      }
-      for (let r = 0; r < rings - 1; r++) {
-        for (let c = 0; c < cols; c++) {
-          const current = offset + r * cols + c;
-          const nextCol = offset + r * cols + ((c + 1) % cols);
-          const nextRow = current + cols;
-          const nextBoth = offset + (r + 1) * cols + ((c + 1) % cols);
-          surfaceFaces.push([current, nextCol, nextBoth, nextRow]);
-          if (c % 3 === 0) surfaceEdges.push([current, nextCol]);
-          if (r < rings - 1 && c % 5 === 0) surfaceEdges.push([current, current + cols]);
-        }
-      }
-      const folds = [
-        { y: -0.38, z: 0.22, amp: 0.05 },
-        { y: -0.16, z: 0.28, amp: -0.04 },
-        { y: 0.08, z: 0.24, amp: 0.045 },
-        { y: 0.31, z: 0.18, amp: -0.035 }
-      ];
-      for (const fold of folds) {
-        const line = [];
-        for (let i = 0; i <= 42; i++) {
-          const t = i / 42;
-          line.push({
-            x: side * (0.22 + 0.48 * t),
-            y: fold.y + fold.amp * Math.sin(t * Math.PI * 2.2),
-            z: fold.z * Math.sin(t * Math.PI) + 0.035 * Math.cos(t * Math.PI * 4)
-          });
-        }
-        foldLines.push(line);
-      }
-    }
-  }
-  function makeBrain() {
-    points.length = 0;
-    for (let i = 0; i < 1450; i++) {
-      const side = random() > 0.5 ? 1 : -1;
-      const theta = random() * Math.PI * 2;
-      const phi = Math.acos(2 * random() - 1);
-      const groove = 0.055 * Math.sin(theta * 8 + phi * 5) + 0.035 * Math.sin(theta * 15);
-      const sx = 0.52 + groove, sy = 0.78 + 0.03 * Math.cos(theta * 5), sz = 0.58 + 0.04 * Math.sin(phi * 6);
-      let x = side * (0.18 + sx * Math.sin(phi) * Math.cos(theta));
-      let y = sy * Math.cos(phi);
-      let z = sz * Math.sin(phi) * Math.sin(theta);
-      x += side * Math.exp(-Math.pow(x / 0.12, 2)) * 0.13;
-      if (!(Math.abs(x) > 0.18 && y < 0.72) || random() < 0.18) continue;
-      let falseHeat = 0, trueHeat = 0;
-      for (const spot of falsePositiveSpots) {
-        falseHeat = Math.max(falseHeat, Math.max(0, 1 - Math.hypot(x - spot.x, y - spot.y, z - spot.z) / spot.r));
-      }
-      for (const spot of truePositiveSpots) {
-        trueHeat = Math.max(trueHeat, Math.max(0, 1 - Math.hypot(x - spot.x, y - spot.y, z - spot.z) / spot.r));
-      }
-      const activationLabel = trueHeat > 0.58 ? "true" : (falseHeat > 0.3 ? "false" : "neutral");
-      const causalLabel = trueHeat > 0.28 ? "true" : "neutral";
-      const activationHeat = activationLabel === "neutral" ? 0 : Math.max(falseHeat, trueHeat);
-      const causalHeat = causalLabel === "neutral" ? 0 : trueHeat;
-      points.push({ x, y, z, size: 1.4 + random() * 2.2, activationHeat, causalHeat, activationLabel, causalLabel, phase: random() * Math.PI * 2 });
-    }
-  }
-  function resize() {
-    const rect = canvas.getBoundingClientRect();
-    width = rect.width; height = rect.height; dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.max(1, Math.floor(width * dpr));
-    canvas.height = Math.max(1, Math.floor(height * dpr));
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  function rotate(p) {
-    const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
-    const x1 = p.x * cy - p.z * sy;
-    const z1 = p.x * sy + p.z * cy;
-    return { x: x1, y: p.y * cp - z1 * sp, z: p.y * sp + z1 * cp };
-  }
-  function draw(time) {
-    yaw += (targetYaw - yaw) * 0.08;
-    pitch += (targetPitch - pitch) * 0.08;
-    if (!dragging && !prefersReduced) targetYaw += 0.0017;
-    ctx.clearRect(0, 0, width, height);
-    const grd = ctx.createRadialGradient(width * 0.52, height * 0.42, 30, width * 0.52, height * 0.42, Math.max(width, height) * 0.64);
-    grd.addColorStop(0, "rgba(255,255,255,0.78)");
-    grd.addColorStop(0.58, "rgba(255,255,255,0.22)");
-    grd.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, width, height);
-    const scale = Math.min(width * 0.52, height) * 0.39;
-    function projectBrain(kind, centerX) {
-      return points.map((p) => {
-      const r = rotate(p), depth = 1.7 + r.z;
-      const heat = kind === "causal" ? p.causalHeat : p.activationHeat;
-      const label = kind === "causal" ? p.causalLabel : p.activationLabel;
-      return {
-        x: centerX + (r.x / depth) * scale,
-        y: height * 0.48 + (r.y / depth) * scale,
-        z: r.z,
-        size: (p.size + heat * 3.2) * (1.45 / depth),
-        heat,
-        color: label === "true" ? "#259a55" : (label === "false" ? "#d83b2d" : "rgba(76, 95, 112, 0.5)"),
-        phase: p.phase
-      };
-      }).sort((a, b) => a.z - b.z);
-    }
-    function projectPoint(point, centerX, scaleFactor = 1) {
-      const r = rotate(point), depth = 1.7 + r.z;
-      return {
-        x: centerX + (r.x / depth) * scale * scaleFactor,
-        y: height * 0.48 + (r.y / depth) * scale * scaleFactor,
-        z: r.z
-      };
-    }
-    function drawProjectedPath(points, centerX, close = false) {
-      const projected = points.map((point) => projectPoint(point, centerX, 1.06));
-      ctx.beginPath();
-      projected.forEach((point, index) => {
-        if (index === 0) ctx.moveTo(point.x, point.y);
-        else ctx.lineTo(point.x, point.y);
-      });
-      if (close) ctx.closePath();
-    }
-    function drawBrainSurface(centerX) {
-      const projected = surfaceNodes.map((node) => {
-        const r = rotate(node), depth = 1.7 + r.z;
-        return {
-          x: centerX + (r.x / depth) * scale,
-          y: height * 0.48 + (r.y / depth) * scale,
-          z: r.z
-        };
-      });
-      ctx.save();
-      const faces = surfaceFaces.map((face) => ({
-        face,
-        z: face.reduce((sum, index) => sum + projected[index].z, 0) / face.length
-      })).sort((a, b) => a.z - b.z);
-      for (const { face, z } of faces) {
-        const shade = Math.max(0, Math.min(1, (z + 0.72) / 1.55));
-        const alpha = 0.16 + shade * 0.12;
-        const tone = Math.round(226 + shade * 18);
-        ctx.fillStyle = `rgba(${tone}, ${Math.min(248, tone + 7)}, ${Math.min(255, tone + 14)}, ${alpha})`;
-        ctx.beginPath();
-        face.forEach((index, i) => {
-          const p = projected[index];
-          if (i === 0) ctx.moveTo(p.x, p.y);
-          else ctx.lineTo(p.x, p.y);
-        });
-        ctx.closePath();
-        ctx.fill();
-      }
-      ctx.lineWidth = 1;
-      for (const [a, b] of surfaceEdges) {
-        const p = projected[a], q = projected[b];
-        const alpha = 0.03 + Math.max(0, (p.z + q.z) * 0.5 + 0.55) * 0.055;
-        ctx.strokeStyle = `rgba(54, 70, 84, ${Math.min(0.11, alpha)})`;
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(q.x, q.y);
-        ctx.stroke();
-      }
-      ctx.lineWidth = 1.2;
-      for (const line of foldLines) {
-        const projectedLine = line.map((point) => projectPoint(point, centerX));
-        const avgZ = projectedLine.reduce((sum, point) => sum + point.z, 0) / projectedLine.length;
-        ctx.strokeStyle = `rgba(43, 58, 70, ${0.08 + Math.max(0, avgZ + 0.35) * 0.1})`;
-        ctx.beginPath();
-        projectedLine.forEach((point, index) => {
-          if (index === 0) ctx.moveTo(point.x, point.y);
-          else ctx.lineTo(point.x, point.y);
-        });
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-    function drawBrain(projected) {
-    ctx.lineWidth = 1;
-    for (let i = 0; i < projected.length; i += 9) {
-      const a = projected[i];
-      for (let j = i + 9; j < Math.min(projected.length, i + 90); j += 14) {
-        const b = projected[j], dist = Math.hypot(a.x - b.x, a.y - b.y);
-        if (dist < 34 && Math.abs(a.z - b.z) < 0.18) {
-          ctx.strokeStyle = `rgba(23, 32, 42, ${(1 - dist / 34) * (0.035 + Math.max(a.heat, b.heat) * 0.1)})`;
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        }
-      }
-    }
-    for (const p of projected) {
-      const pulse = 1 + Math.sin(time * 0.002 + p.phase) * 0.14 * p.heat;
-      ctx.beginPath();
-      ctx.fillStyle = p.color;
-      ctx.globalAlpha = p.heat > 0 ? 0.32 + p.heat * 0.54 : 0.34;
-      ctx.arc(p.x, p.y, p.size * pulse, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    }
-    const activationProjected = projectBrain("activation", width * 0.3);
-    const causalProjected = projectBrain("causal", width * 0.7);
-    drawBrainSurface(width * 0.3);
-    drawBrainSurface(width * 0.7);
-    drawBrain(activationProjected);
-    drawBrain(causalProjected);
-    ctx.globalAlpha = 1;
-    ctx.textAlign = "center";
-    ctx.fillStyle = "rgba(23, 32, 42, 0.82)";
-    const compactCanvas = width < 520;
-    ctx.font = `${compactCanvas ? "800 15px" : "800 18px"} Google Sans, Noto Sans, sans-serif`;
-    ctx.fillText(compactCanvas ? "Activation" : "Activation-Based", width * 0.3, 38);
-    ctx.fillText(compactCanvas ? "Causal" : "Causal-Based", width * 0.7, 38);
-    ctx.textAlign = "left";
-    ctx.font = "800 12px Google Sans, Noto Sans, sans-serif";
-    const legendX = 34, legendY = height - 34;
-    ctx.fillStyle = "rgba(255,255,255,0.82)";
-    ctx.strokeStyle = "rgba(20,31,45,0.12)";
-    ctx.lineWidth = 1;
-    const boxX = legendX - 12, boxY = legendY - 20, boxW = compactCanvas ? 332 : 382, boxH = 36, radius = 14;
-    ctx.beginPath();
-    ctx.moveTo(boxX + radius, boxY);
-    ctx.lineTo(boxX + boxW - radius, boxY);
-    ctx.quadraticCurveTo(boxX + boxW, boxY, boxX + boxW, boxY + radius);
-    ctx.lineTo(boxX + boxW, boxY + boxH - radius);
-    ctx.quadraticCurveTo(boxX + boxW, boxY + boxH, boxX + boxW - radius, boxY + boxH);
-    ctx.lineTo(boxX + radius, boxY + boxH);
-    ctx.quadraticCurveTo(boxX, boxY + boxH, boxX, boxY + boxH - radius);
-    ctx.lineTo(boxX, boxY + radius);
-    ctx.quadraticCurveTo(boxX, boxY, boxX + radius, boxY);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = "#259a55";
-    ctx.beginPath(); ctx.arc(legendX, legendY, 6, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#26384d";
-    ctx.fillText("green = causal evidence", legendX + 12, legendY + 4);
-    ctx.fillStyle = "#d83b2d";
-    ctx.beginPath(); ctx.arc(legendX + (compactCanvas ? 172 : 210), legendY, 6, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#26384d";
-    ctx.fillText("red = activation-only", legendX + (compactCanvas ? 196 : 234), legendY + 4);
-    requestAnimationFrame(draw);
-  }
-  canvas.addEventListener("pointerdown", (event) => {
-    dragging = true; canvas.setPointerCapture(event.pointerId); lastX = event.clientX; lastY = event.clientY;
-  });
-  canvas.addEventListener("pointermove", (event) => {
-    if (!dragging) return;
-    targetYaw += (event.clientX - lastX) * 0.006;
-    targetPitch = Math.max(-0.75, Math.min(0.75, targetPitch + (event.clientY - lastY) * 0.004));
-    lastX = event.clientX; lastY = event.clientY;
-  });
-  canvas.addEventListener("pointerup", () => { dragging = false; });
-  canvas.addEventListener("pointercancel", () => { dragging = false; });
-  window.addEventListener("resize", resize);
-  makeSurfaceMesh();
-  makeBrain();
-  resize();
-  requestAnimationFrame(draw);
-})();
-*/
 </script>
 </body>
 </html>
